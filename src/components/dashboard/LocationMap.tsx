@@ -11,11 +11,13 @@ export default function LocationMap() {
   const maxValue = Math.max(...locations.map(loc => parseInt(loc.value)))
 
   return (
-    <div className="bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-2xl p-6 h-full flex flex-col">
-      <p className="text-sm font-semibold text-black dark:text-white mb-4">Revenue by Location</p>
+    <div className="bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-2xl p-4 sm:p-6 h-full flex flex-col">
+      <p className="text-xs sm:text-sm font-semibold text-black dark:text-white mb-3 sm:mb-4">
+        Revenue by Location
+      </p>
 
       {/* World Map */}
-      <div className="flex-1 relative overflow-hidden rounded-lg mb-4 min-h-[140px] bg-transparent">
+      <div className="flex-1 relative overflow-hidden rounded-lg mb-3 sm:mb-4 min-h-[120px] sm:min-h-[140px] bg-transparent">
         <ComposableMap
           projection="geoMercator"
           projectionConfig={{
@@ -52,7 +54,7 @@ export default function LocationMap() {
       </div>
 
       {/* Location List with Progress Bar */}
-      <div className="space-y-3 text-sm">
+      <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
         {locations.map((loc, idx) => {
           const value = parseInt(loc.value)
           const percentage = (value / maxValue) * 100

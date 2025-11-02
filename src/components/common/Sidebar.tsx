@@ -48,14 +48,14 @@ export default function Sidebar({ isOpen = true }: SidebarProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.aside
-          initial={{ width: 0, opacity: 0 }}
-          animate={{ width: 212, opacity: 1 }}
-          exit={{ width: 0, opacity: 0 }}
+          initial={{ width: 0, opacity: 0, x: -20 }}
+          animate={{ width: 212, opacity: 1, x: 0 }}
+          exit={{ width: 0, opacity: 0, x: -20 }}
           transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-          className="border-r border-black/10 dark:border-white/10 bg-white dark:bg-[#1f1f1f] flex flex-col p-4 gap-4 overflow-y-auto scrollbar-auto-hide h-screen sticky top-0"
+          className="border-r border-black/10 dark:border-white/10 bg-white dark:bg-[#1f1f1f] flex flex-col p-3 sm:p-4 gap-3 sm:gap-4 overflow-y-auto scrollbar-auto-hide h-screen fixed md:sticky top-0 left-0 z-40 md:relative md:z-auto"
         >
           {/* Logo */}
-          <div className="flex items-center gap-2 p-1">
+          <div className="flex items-center gap-1 sm:gap-2 p-1">
             <div className="rounded-full overflow-hidden flex items-center justify-center shrink-0">
               <Image
                 src={sidebarData.logo.imagePath}
@@ -65,7 +65,7 @@ export default function Sidebar({ isOpen = true }: SidebarProps) {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-sm text-black dark:text-white whitespace-nowrap">
+            <span className="text-xs sm:text-sm text-black dark:text-white whitespace-nowrap truncate">
               {sidebarData.logo.text}
             </span>
           </div>

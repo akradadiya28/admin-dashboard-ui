@@ -9,13 +9,13 @@ import LocationMap from '@/components/dashboard/LocationMap'
 
 export default function DashboardPage() {
   return (
-    <div className="p-7">
-      <h2 className="text-sm font-semibold text-black dark:text-white mb-6">eCommerce</h2>
+    <div className="p-4 sm:p-5 md:p-7">
+      <h2 className="text-sm font-semibold text-black dark:text-white mb-4 sm:mb-6">eCommerce</h2>
 
       {/* 4 Stats Cards (2x2) + Bar Chart */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
         {/* Left Side — Stats Cards */}
-        <div className="grid grid-cols-2 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
           <StatsCard
             title="Customers"
             value="3,781"
@@ -51,27 +51,27 @@ export default function DashboardPage() {
         </div>
 
         {/* Right Side — Chart */}
-        <div className="w-full h-full flex flex-col justify-center">
+        <div className="w-full h-[300px] sm:h-[350px] md:h-full flex flex-col justify-center">
           <ProjectionsChart />
         </div>
       </div>
 
       {/* Revenue Chart + Location Map */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div className="lg:col-span-2 h-[400px]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
+        <div className="lg:col-span-2 h-[300px] sm:h-[350px] md:h-[400px]">
           <RevenueChart />
         </div>
-        <div className="h-[400px]">
+        <div className="h-[300px] sm:h-[350px] md:h-[400px]">
           <LocationMap />
         </div>
       </div>
 
       {/* Product Table + Donut Chart */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 h-[450px]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="lg:col-span-2 h-[400px] sm:h-[450px]">
           <ProductTable />
         </div>
-        <div className="h-[450px]">
+        <div className="h-[300px] sm:h-[400px] md:h-[450px]">
           <DonutChart />
         </div>
       </div>

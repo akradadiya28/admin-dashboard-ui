@@ -63,33 +63,35 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
 
   return (
     <>
-      <header className="h-[68px] border-b border-black/10 dark:border-white/10 bg-white dark:bg-[#1f1f1f] flex items-center justify-between px-7 sticky top-0 z-50">
+      <header className="h-[68px] border-b border-black/10 dark:border-white/10 bg-white dark:bg-[#1f1f1f] flex items-center justify-between px-3 sm:px-4 md:px-7 sticky top-0 z-50 gap-2 sm:gap-3">
         {/* Left Section */}
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 min-w-0 flex-1">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             {/* Sidebar Toggle Button */}
             <button
               onClick={onToggleSidebar}
-              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0"
             >
               <OpenIcon className="text-black dark:text-white" />
             </button>
 
-            <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+            <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0 hidden sm:flex">
               <StarIcon className="text-black dark:text-white" />
             </button>
           </div>
 
           {/* Breadcrumb */}
-          <Breadcrumb />
+          <div className="min-w-0 hidden sm:block">
+            <Breadcrumb />
+          </div>
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-5 shrink-0">
           {/* Search Button */}
           <button
             onClick={() => setIsSearchOpen(true)}
-            className="flex items-center justify-between gap-2 px-2 py-1 bg-[rgba(28,28,28,0.05)] hover:bg-[rgba(28,28,28,0.1)] dark:bg-[rgba(255,255,255,0.1)] dark:hover:bg-[rgba(255,255,255,0.15)] rounded-lg transition-colors min-w-40 h-7"
+            className="hidden sm:flex items-center justify-between gap-2 px-2 py-1 bg-[rgba(28,28,28,0.05)] hover:bg-[rgba(28,28,28,0.1)] dark:bg-[rgba(255,255,255,0.1)] dark:hover:bg-[rgba(255,255,255,0.15)] rounded-lg transition-colors min-w-40 h-7"
           >
             <div className="flex items-center gap-1">
               <SearchIcon
@@ -103,8 +105,16 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
             <CommandKIcon className="text-[rgba(28,28,28,0.8)] dark:text-[rgba(255,255,255,0.8)]" />
           </button>
 
+          {/* Mobile Search Button */}
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="sm:hidden w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          >
+            <SearchIcon size={18} className="text-black dark:text-white" />
+          </button>
+
           {/* Icon Buttons */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
@@ -117,13 +127,13 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
               )}
             </button>
 
-            {/* Clock */}
-            <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+            {/* Clock - Hidden on mobile */}
+            <button className="hidden md:flex w-7 h-7 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
               <TimeIcon className="text-black dark:text-white" />
             </button>
 
-            {/* Bell */}
-            <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors relative">
+            {/* Bell - Hidden on mobile */}
+            <button className="hidden md:flex w-7 h-7 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors relative">
               <BellIcon className="text-black dark:text-white" />
             </button>
 
@@ -151,7 +161,7 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
 
       {/* Search Modal */}
       {isSearchOpen && (
-        <div className="fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] z-101">
+        <div className="fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[500px] md:w-[600px] max-w-[600px] z-101 mx-4">
           <div className="bg-white dark:bg-[#1f1f1f] rounded-2xl shadow-2xl overflow-hidden">
             {/* Search Input */}
             <div className="border-b border-black/10 dark:border-white/10 p-4">
@@ -178,7 +188,7 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
             </div>
 
             {/* Search Results */}
-            <div className="max-h-[400px] overflow-y-auto scrollbar-auto-hide">
+            <div className="max-h-[50vh] sm:max-h-[400px] overflow-y-auto scrollbar-auto-hide">
               {results.length === 0 && query.trim() !== '' ? (
                 <div className="p-8 text-center">
                   <p className="text-black/60 dark:text-white/60">No results found for "{query}"</p>

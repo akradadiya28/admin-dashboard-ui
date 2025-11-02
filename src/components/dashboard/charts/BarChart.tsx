@@ -33,12 +33,12 @@ export default function ProjectionsChart() {
 
   return (
     <div
-      className={`w-full rounded-2xl p-6 h-full flex flex-col ${
+      className={`w-full rounded-2xl p-4 sm:p-6 h-full flex flex-col ${
         isDarkMode ? 'bg-[rgba(255,255,255,0.05)]' : 'bg-[#F7F9FB]'
       }`}
     >
       <p
-        className={`text-sm font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}
+        className={`text-xs sm:text-sm font-semibold mb-3 sm:mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}
         style={{
           fontFamily: 'Inter, sans-serif',
           letterSpacing: '-0.1px',

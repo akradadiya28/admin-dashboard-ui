@@ -26,16 +26,16 @@ export default function Breadcrumb() {
   ]
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-auto-hide">
       {breadcrumbItems.map((item, index) => (
-        <div key={index} className="flex items-center gap-2">
+        <div key={index} className="flex items-center gap-1 sm:gap-2 shrink-0">
           {item.href ? (
             <Link
               href={item.href}
-              className="px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              className="px-1 sm:px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
             >
               <span
-                className={`text-sm ${
+                className={`text-xs sm:text-sm whitespace-nowrap ${
                   index === breadcrumbItems.length - 1
                     ? 'text-black dark:text-white'
                     : 'text-black/40 dark:text-white/40'
@@ -45,12 +45,14 @@ export default function Breadcrumb() {
               </span>
             </Link>
           ) : (
-            <button className="px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
-              <span className="text-sm text-black dark:text-white">{item.label}</span>
+            <button className="px-1 sm:px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+              <span className="text-xs sm:text-sm text-black dark:text-white whitespace-nowrap">
+                {item.label}
+              </span>
             </button>
           )}
           {index < breadcrumbItems.length - 1 && (
-            <span className="text-sm text-black/20 dark:text-white/20">/</span>
+            <span className="text-xs sm:text-sm text-black/20 dark:text-white/20">/</span>
           )}
         </div>
       ))}

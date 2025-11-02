@@ -10,11 +10,13 @@ export default function DonutChart() {
   const sales = donutChartSales
 
   return (
-    <div className="bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-2xl p-6 h-full flex flex-col">
-      <p className="text-sm font-semibold text-black dark:text-white mb-4">Total Sales</p>
+    <div className="bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-2xl p-4 sm:p-6 h-full flex flex-col">
+      <p className="text-xs sm:text-sm font-semibold text-black dark:text-white mb-3 sm:mb-4">
+        Total Sales
+      </p>
 
       {/* Chart - Takes flex space */}
-      <div className="relative flex-1 min-h-[200px] mb-4">
+      <div className="relative flex-1 min-h-[150px] sm:min-h-[200px] mb-3 sm:mb-4">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -38,7 +40,7 @@ export default function DonutChart() {
       </div>
 
       {/* Legend */}
-      <div className="space-y-3 text-sm">
+      <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
         {sales.map((sale, idx) => (
           <div key={idx} className="flex justify-between items-center">
             <div className="flex items-center gap-2">

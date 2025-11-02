@@ -64,12 +64,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={inter.variable}>
         <ThemeProvider>
-          <div className="flex h-screen bg-white dark:bg-[#1a1a1a]">
+          <div className="flex h-screen bg-white dark:bg-[#1a1a1a] relative">
+            {/* Mobile Backdrop for Sidebar */}
+            {showSidebar && (
+              <div
+                onClick={handleToggleSidebar}
+                className="fixed inset-0 bg-black/50 z-[35] md:hidden"
+              />
+            )}
+
             {/* Sidebar - Toggleable */}
             <Sidebar isOpen={showSidebar} />
 
             {/* Main Content Area */}
-            <div className="flex-1 flex flex-col overflow-hidden scrollbar-auto-hide">
+            <div className="flex-1 flex flex-col overflow-hidden scrollbar-auto-hide min-w-0 w-full md:w-auto">
               <Header
                 onToggleNotifications={handleToggleNotifications}
                 onToggleSidebar={handleToggleSidebar}
@@ -77,6 +85,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               <main className="flex-1 overflow-auto scrollbar-auto-hide">{children}</main>
             </div>
+
+            {/* Mobile Backdrop for Notification Panel */}
+            {showNotifications && (
+              <div
+                onClick={handleToggleNotifications}
+                className="fixed inset-0 bg-black/50 z-[25] md:hidden"
+              />
+            )}
 
             {/* Notification Panel - Toggleable */}
             {showNotifications && <NotificationPanel />}

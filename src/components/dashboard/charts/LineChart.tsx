@@ -25,17 +25,17 @@ export default function RevenueChart() {
   const currentLineColor = isDarkMode ? '#ffffff' : '#1C1C1C'
 
   return (
-    <div className="bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-2xl p-6 h-full flex flex-col">
-      <div className="flex items-center gap-4 mb-4 flex-wrap text-xs">
-        <p className="text-sm font-semibold text-black dark:text-white">Revenue</p>
-        <span className="text-[#1C1C1C33] dark:text-[#FFFFFF33]">|</span>
-        <div className="flex items-center gap-2">
+    <div className="bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-2xl p-4 sm:p-6 h-full flex flex-col">
+      <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-4 flex-wrap text-xs">
+        <p className="text-xs sm:text-sm font-semibold text-black dark:text-white">Revenue</p>
+        <span className="text-[#1C1C1C33] dark:text-[#FFFFFF33] hidden sm:inline">|</span>
+        <div className="flex items-center gap-1 sm:gap-2">
           <CircleIcon className="text-[#1C1C1C] dark:text-[#C6C7F8]" />
-          <span className="text-black dark:text-white">Current Week: $58,211</span>
+          <span className="text-black dark:text-white text-xs">Current Week: $58,211</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <CircleIcon className="text-[#A8C5DA] dark:text-[#A8C5DA]" />
-          <span className="text-black dark:text-white">Previous Week: $68,768</span>
+          <span className="text-black dark:text-white text-xs">Previous Week: $68,768</span>
         </div>
       </div>
       <div className="flex-1 min-h-0">
