@@ -34,7 +34,7 @@ export default function ProjectionsChart() {
   return (
     <div
       className={`w-full rounded-2xl p-4 sm:p-6 h-full flex flex-col ${
-        isDarkMode ? 'bg-[var(--color-white-rgba-05)]' : 'bg-[var(--color-bg-light)]'
+        isDarkMode ? 'bg-(--color-white-rgba-05)' : 'bg-(--color-bg-light)'
       }`}
     >
       <p

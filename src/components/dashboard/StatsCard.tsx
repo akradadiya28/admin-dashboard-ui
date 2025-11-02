@@ -13,7 +13,7 @@ export default function StatsCard({
 }: StatsCardProps) {
   const variants = {
     sky: 'bg-[var(--color-bg-sky)]',
-    gray: 'bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-white-opacity)]',
+    gray: 'bg-(--color-bg-light) dark:bg-(--color-bg-white-opacity)',
     indigo: 'bg-[var(--color-bg-indigo)]',
   }
 
