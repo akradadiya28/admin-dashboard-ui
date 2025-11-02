@@ -70,12 +70,17 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
             {/* Sidebar Toggle Button */}
             <button
               onClick={onToggleSidebar}
-              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0"
+              aria-label="Toggle sidebar"
+              aria-expanded={true}
+              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
             >
               <OpenIcon className="text-black dark:text-white" />
             </button>
 
-            <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0 hidden sm:flex">
+            <button
+              aria-label="Favorite"
+              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors shrink-0 hidden sm:flex focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
+            >
               <StarIcon className="text-black dark:text-white" />
             </button>
           </div>
@@ -91,7 +96,8 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
           {/* Search Button */}
           <button
             onClick={() => setIsSearchOpen(true)}
-            className="hidden sm:flex items-center justify-between gap-2 px-2 py-1 bg-[var(--color-black-rgba-05)] hover:bg-[var(--color-black-rgba-10)] dark:bg-[var(--color-white-rgba-10)] dark:hover:bg-[var(--color-white-rgba-15)] rounded-lg transition-colors min-w-40 h-7"
+            aria-label="Open search (Cmd+K or Ctrl+K)"
+            className="hidden sm:flex items-center justify-between gap-2 px-2 py-1 bg-[var(--color-black-rgba-05)] hover:bg-[var(--color-black-rgba-10)] dark:bg-[var(--color-white-rgba-10)] dark:hover:bg-[var(--color-white-rgba-15)] rounded-lg transition-colors min-w-40 h-7 focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
           >
             <div className="flex items-center gap-1">
               <SearchIcon
@@ -108,7 +114,8 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
           {/* Mobile Search Button */}
           <button
             onClick={() => setIsSearchOpen(true)}
-            className="sm:hidden w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+            aria-label="Open search"
+            className="sm:hidden w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
           >
             <SearchIcon size={18} className="text-black dark:text-white" />
           </button>
@@ -118,7 +125,8 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
             >
               {isDarkMode ? (
                 <Moon size={20} className="text-white" />
@@ -128,19 +136,27 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
             </button>
 
             {/* Clock - Hidden on mobile */}
-            <button className="hidden md:flex w-7 h-7 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+            <button
+              aria-label="Clock"
+              className="hidden md:flex w-7 h-7 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
+            >
               <TimeIcon className="text-black dark:text-white" />
             </button>
 
             {/* Bell - Hidden on mobile */}
-            <button className="hidden md:flex w-7 h-7 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors relative">
+            <button
+              aria-label="Notifications"
+              className="hidden md:flex w-7 h-7 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors relative focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
+            >
               <BellIcon className="text-black dark:text-white" />
             </button>
 
             {/* Notification Panel Toggle */}
             <button
               onClick={onToggleNotifications}
-              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              aria-label="Toggle notifications panel"
+              aria-expanded={true}
+              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
             >
               <OpenIcon className="text-black dark:text-white" />
             </button>
@@ -161,8 +177,13 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
 
       {/* Search Modal */}
       {isSearchOpen && (
-        <div className="fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[500px] md:w-[600px] max-w-[600px] z-101 mx-4">
-          <div className="bg-white dark:bg-[var(--color-bg-dark-alt)] rounded-2xl shadow-2xl overflow-hidden">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="search-dialog-title"
+          className="fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[500px] md:w-[600px] max-w-[600px] z-101 mx-4"
+        >
+          <div className="bg-white dark:bg-(--color-bg-dark-alt) rounded-2xl shadow-2xl overflow-hidden">
             {/* Search Input */}
             <div className="border-b border-black/10 dark:border-white/10 p-4">
               <div className="flex items-center gap-3 px-2">
@@ -173,14 +194,17 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
                   placeholder="Search pages, dashboards, settings..."
                   value={query}
                   onChange={e => setQuery(e.target.value)}
-                  className="flex-1 bg-transparent text-base text-black dark:text-white placeholder:text-black/40 dark:placeholder:text-white/40 outline-none"
+                  aria-label="Search input"
+                  aria-describedby="search-help"
+                  className="flex-1 bg-transparent text-base text-black dark:text-white placeholder:text-black/40 dark:placeholder:text-white/40 outline-none focus:ring-0"
                 />
                 <button
                   onClick={() => {
                     setIsSearchOpen(false)
                     setQuery('')
                   }}
-                  className="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white"
+                  aria-label="Close search"
+                  className="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10 rounded"
                 >
                   <X size={20} />
                 </button>
