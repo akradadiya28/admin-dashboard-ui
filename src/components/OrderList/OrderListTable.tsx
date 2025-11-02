@@ -240,19 +240,13 @@ export default function OrderListTable() {
 
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-2 mb-4 sm:mb-6 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-white-opacity)] rounded-lg p-2 sm:p-3">
         <div className="flex items-center gap-2 flex-wrap">
-          <button
-            aria-label="Add new order"
-            className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
-          >
+          <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
             <Plus size={20} className="text-black dark:text-white" />
           </button>
           <div className="relative">
             <button
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              aria-label="Filter orders by status"
-              aria-expanded={isFilterOpen}
-              aria-haspopup="true"
-              className={`w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10 ${
+              className={`w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors ${
                 hasActiveFilters && selectedStatuses.size < allStatuses.length
                   ? 'bg-black/5 dark:bg-white/10'
                   : ''
@@ -312,10 +306,9 @@ export default function OrderListTable() {
           />
           <input
             type="text"
-            placeholder="Search orders"
+            placeholder="Search"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            aria-label="Search orders"
             className="pl-10 pr-4 py-2 w-full sm:w-64 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[var(--color-bg-dark-alt)] text-sm text-black dark:text-white placeholder:text-black/40 dark:placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
           />
         </div>
@@ -323,11 +316,7 @@ export default function OrderListTable() {
 
       <div className="bg-white dark:bg-transparent rounded-lg overflow-hidden">
         <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-          <table
-            className="w-full text-xs sm:text-sm min-w-[800px]"
-            role="table"
-            aria-label="Order list table"
-          >
+          <table className="w-full text-xs sm:text-sm min-w-[800px]">
             <thead>
               <tr className="border-b border-black/10 dark:border-white/10">
                 <th className="px-4 py-3 text-left w-12">
@@ -335,29 +324,12 @@ export default function OrderListTable() {
                     type="checkbox"
                     checked={isAllSelected}
                     onChange={handleSelectAll}
-                    aria-label="Select all orders"
                     className="w-4 h-4 rounded border border-black/20 dark:border-white/20 cursor-pointer"
                   />
                 </th>
                 <th
                   className="px-4 py-3 text-left text-black/60 dark:text-white/60 font-medium text-xs cursor-pointer hover:text-black dark:hover:text-white transition-colors select-none"
                   onClick={() => handleSort('id')}
-                  aria-sort={
-                    sortField === 'id'
-                      ? sortDirection === 'asc'
-                        ? 'ascending'
-                        : 'descending'
-                      : 'none'
-                  }
-                  scope="col"
-                  role="columnheader"
-                  tabIndex={0}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      handleSort('id')
-                    }
-                  }}
                 >
                   <div className="flex items-center gap-1.5">
                     Order ID
@@ -367,22 +339,6 @@ export default function OrderListTable() {
                 <th
                   className="px-4 py-3 text-left text-black/60 dark:text-white/60 font-medium text-xs cursor-pointer hover:text-black dark:hover:text-white transition-colors select-none"
                   onClick={() => handleSort('userName')}
-                  aria-sort={
-                    sortField === 'userName'
-                      ? sortDirection === 'asc'
-                        ? 'ascending'
-                        : 'descending'
-                      : 'none'
-                  }
-                  scope="col"
-                  role="columnheader"
-                  tabIndex={0}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      handleSort('userName')
-                    }
-                  }}
                 >
                   <div className="flex items-center gap-1.5">
                     User
@@ -392,22 +348,6 @@ export default function OrderListTable() {
                 <th
                   className="px-4 py-3 text-left text-black/60 dark:text-white/60 font-medium text-xs cursor-pointer hover:text-black dark:hover:text-white transition-colors select-none"
                   onClick={() => handleSort('project')}
-                  aria-sort={
-                    sortField === 'project'
-                      ? sortDirection === 'asc'
-                        ? 'ascending'
-                        : 'descending'
-                      : 'none'
-                  }
-                  scope="col"
-                  role="columnheader"
-                  tabIndex={0}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      handleSort('project')
-                    }
-                  }}
                 >
                   <div className="flex items-center gap-1.5">
                     Project
@@ -417,22 +357,6 @@ export default function OrderListTable() {
                 <th
                   className="px-4 py-3 text-left text-black/60 dark:text-white/60 font-medium text-xs cursor-pointer hover:text-black dark:hover:text-white transition-colors select-none"
                   onClick={() => handleSort('address')}
-                  aria-sort={
-                    sortField === 'address'
-                      ? sortDirection === 'asc'
-                        ? 'ascending'
-                        : 'descending'
-                      : 'none'
-                  }
-                  scope="col"
-                  role="columnheader"
-                  tabIndex={0}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      handleSort('address')
-                    }
-                  }}
                 >
                   <div className="flex items-center gap-1.5">
                     Address
@@ -442,22 +366,6 @@ export default function OrderListTable() {
                 <th
                   className="px-4 py-3 text-left text-black/60 dark:text-white/60 font-medium text-xs cursor-pointer hover:text-black dark:hover:text-white transition-colors select-none"
                   onClick={() => handleSort('date')}
-                  aria-sort={
-                    sortField === 'date'
-                      ? sortDirection === 'asc'
-                        ? 'ascending'
-                        : 'descending'
-                      : 'none'
-                  }
-                  scope="col"
-                  role="columnheader"
-                  tabIndex={0}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      handleSort('date')
-                    }
-                  }}
                 >
                   <div className="flex items-center gap-1.5">
                     Date
@@ -467,22 +375,6 @@ export default function OrderListTable() {
                 <th
                   className="px-4 py-3 text-left text-black/60 dark:text-white/60 font-medium text-xs cursor-pointer hover:text-black dark:hover:text-white transition-colors select-none"
                   onClick={() => handleSort('status')}
-                  aria-sort={
-                    sortField === 'status'
-                      ? sortDirection === 'asc'
-                        ? 'ascending'
-                        : 'descending'
-                      : 'none'
-                  }
-                  scope="col"
-                  role="columnheader"
-                  tabIndex={0}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      handleSort('status')
-                    }
-                  }}
                 >
                   <div className="flex items-center gap-1.5">
                     Status
@@ -571,8 +463,7 @@ export default function OrderListTable() {
             <button
               onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
               disabled={currentPage === 1}
-              aria-label="Previous page"
-              className="px-2 py-1 text-sm text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
+              className="px-2 py-1 text-sm text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded"
             >
               <ChevronLeft size={20} />
             </button>
@@ -587,9 +478,7 @@ export default function OrderListTable() {
                 <button
                   key={pageNum}
                   onClick={() => setCurrentPage(pageNum)}
-                  aria-label={`Go to page ${pageNum}`}
-                  aria-current={currentPage === pageNum ? 'page' : undefined}
-                  className={`px-3 py-1 text-sm rounded transition-colors focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10 ${
+                  className={`px-3 py-1 text-sm rounded transition-colors ${
                     currentPage === pageNum
                       ? 'bg-[var(--color-text-primary-opacity-05)] dark:bg-white/10 text-black dark:text-white font-semibold'
                       : 'text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/10'
@@ -602,8 +491,7 @@ export default function OrderListTable() {
             <button
               onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
               disabled={currentPage === totalPages}
-              aria-label="Next page"
-              className="px-2 py-1 text-sm text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
+              className="px-2 py-1 text-sm text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded"
             >
               <ChevronRight size={20} />
             </button>
