@@ -46,7 +46,7 @@ export const donutChartSales: DonutChartSales[] = [
   {
     label: 'Direct',
     value: '$300.56',
-    color: 'text-[var(--color-text-primary)] dark:text-[var(--color-chart-dark-purple)]',
+    color: 'text-(--color-text-primary) dark:text-(--color-chart-dark-purple)',
   },
   { label: 'Affiliate', value: '$135.18', color: 'text-[var(--color-chart-light-green)]' },
   { label: 'Sponsored', value: '$154.02', color: 'text-[var(--color-chart-light-blue-purple)]' },
