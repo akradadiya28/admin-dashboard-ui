@@ -52,7 +52,7 @@ export default function Sidebar({ isOpen = true }: SidebarProps) {
           animate={{ width: 212, opacity: 1, x: 0 }}
           exit={{ width: 0, opacity: 0, x: -20 }}
           transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-          className="border-r border-black/10 dark:border-white/10 bg-white dark:bg-[var(--color-bg-dark-alt)] flex flex-col p-3 sm:p-4 gap-3 sm:gap-4 overflow-y-auto scrollbar-auto-hide h-screen fixed md:sticky top-0 left-0 z-40 md:relative md:z-auto"
+          className="border-r border-black/10 dark:border-white/10 bg-white dark:bg-(--color-bg-dark-alt) flex flex-col p-3 sm:p-4 gap-3 sm:gap-4 overflow-y-auto scrollbar-auto-hide h-screen fixed md:sticky top-0 left-0 z-40 md:relative md:z-auto"
         >
           {/* Logo */}
           <div className="flex items-center gap-1 sm:gap-2 p-1">
@@ -87,7 +87,7 @@ export default function Sidebar({ isOpen = true }: SidebarProps) {
                 className="flex items-center gap-1 px-2 py-1 text-sm text-black dark:text-white cursor-pointer"
               >
                 <CircleIcon
-                  className="text-[var(--color-text-primary-opacity-33)] dark:text-white/20"
+                  className="text-(--color-text-primary-opacity-33) dark:text-white/20"
                   size={12}
                 />
                 <span className="whitespace-nowrap ml-1">{item}</span>

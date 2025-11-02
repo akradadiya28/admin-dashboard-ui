@@ -2,18 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import {
-  Menu,
-  Star,
-  Sun,
   Moon,
-  Clock,
-  Bell,
-  PanelRight,
   Search as SearchIcon,
   X,
-  Zap,
-  FileText,
-  Settings,
 } from 'lucide-react'
 import { useTheme } from '@/contexts/ThemeContext'
 import { HeaderProps, SearchResult } from '@/types/components'
@@ -63,7 +54,7 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
 
   return (
     <>
-      <header className="h-[68px] border-b border-black/10 dark:border-white/10 bg-white dark:bg-[var(--color-bg-dark-alt)] flex items-center justify-between px-3 sm:px-4 md:px-7 sticky top-0 z-50 gap-2 sm:gap-3">
+      <header className="h-[68px] border-b border-black/10 dark:border-white/10 bg-white dark:bg-(--color-bg-dark-alt) flex items-center justify-between px-3 sm:px-4 md:px-7 sticky top-0 z-50 gap-2 sm:gap-3">
         {/* Left Section */}
         <div className="flex items-center gap-1 sm:gap-2 min-w-0 flex-1">
           <div className="flex items-center gap-1 sm:gap-2 shrink-0">
@@ -91,18 +82,18 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
           {/* Search Button */}
           <button
             onClick={() => setIsSearchOpen(true)}
-            className="hidden sm:flex items-center justify-between gap-2 px-2 py-1 bg-[var(--color-black-rgba-05)] hover:bg-[var(--color-black-rgba-10)] dark:bg-[var(--color-white-rgba-10)] dark:hover:bg-[var(--color-white-rgba-15)] rounded-lg transition-colors min-w-40 h-7"
+            className="hidden sm:flex items-center justify-between gap-2 px-2 py-1 bg-(--color-black-rgba-05) hover:bg-(--color-black-rgba-10) dark:bg-(--color-white-rgba-10) dark:hover:bg-(--color-white-rgba-15) rounded-lg transition-colors min-w-40 h-7"
           >
             <div className="flex items-center gap-1">
               <SearchIcon
                 size={16}
-                className="text-[var(--color-black-rgba-20)] dark:text-[var(--color-white-rgba-60)]"
+                className="text-(--color-black-rgba-20) dark:text-(--color-white-rgba-60)"
               />
-              <span className="font-inter text-[14px] leading-5 text-[var(--color-black-rgba-20)] dark:text-[var(--color-white-rgba-60)]">
+              <span className="font-inter text-[14px] leading-5 text-(--color-black-rgba-20) dark:text-(--color-white-rgba-60)">
                 Search
               </span>
             </div>
-            <CommandKIcon className="text-[var(--color-black-rgba-80)] dark:text-[var(--color-white-rgba-80)]" />
+            <CommandKIcon className="text-(--color-black-rgba-80) dark:text-(--color-white-rgba-80)" />
           </button>
 
           {/* Mobile Search Button */}
@@ -162,7 +153,7 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
       {/* Search Modal */}
       {isSearchOpen && (
         <div className="fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[500px] md:w-[600px] max-w-[600px] z-101 mx-4">
-          <div className="bg-white dark:bg-[var(--color-bg-dark-alt)] rounded-2xl shadow-2xl overflow-hidden">
+          <div className="bg-white dark:bg-(--color-bg-dark-alt) rounded-2xl shadow-2xl overflow-hidden">
             {/* Search Input */}
             <div className="border-b border-black/10 dark:border-white/10 p-4">
               <div className="flex items-center gap-3 px-2">
@@ -249,7 +240,7 @@ export default function Header({ onToggleNotifications, onToggleSidebar }: Heade
             <div className="border-t border-black/10 dark:border-white/10 px-4 py-3 bg-black/5 dark:bg-white/5">
               <div className="flex items-center justify-between text-xs text-black/40 dark:text-white/40">
                 <div className="flex gap-2 items-center">
-                  <kbd className="px-2 py-1 bg-white dark:bg-[var(--color-bg-dark-alt)] border border-black/20 dark:border-white/20 rounded text-black dark:text-white text-xs">
+                  <kbd className="px-2 py-1 bg-white dark:bg-(--color-bg-dark-alt) border border-black/20 dark:border-white/20 rounded text-black dark:text-white text-xs">
                     Esc
                   </kbd>
                   <span>Close</span>
