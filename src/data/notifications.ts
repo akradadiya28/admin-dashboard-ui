@@ -10,7 +10,7 @@ export const notificationsData: Notification[] = [
     }),
     title: 'You have a bug that needs...',
     time: 'Just now',
-    bgColor: 'bg-[#E3F5FF] dark:[#E3F5FF]',
+    bgColor: 'bg-[var(--color-bg-sky)] dark:bg-[var(--color-bg-sky)]',
   },
   {
     icon: React.createElement(UserOneIcon, {
@@ -19,7 +19,7 @@ export const notificationsData: Notification[] = [
     }),
     title: 'New user registered',
     time: '59 minutes ago',
-    bgColor: 'bg-[#E5ECF6] dark:bg-[#E5ECF6]',
+    bgColor: 'bg-[var(--color-bg-indigo)] dark:bg-[var(--color-bg-indigo)]',
   },
   {
     icon: React.createElement(BugIcon, {
@@ -28,7 +28,7 @@ export const notificationsData: Notification[] = [
     }),
     title: 'You have a bug that needs...',
     time: '12 hours ago',
-    bgColor: 'bg-[#E3F5FF] dark:[#E3F5FF]',
+    bgColor: 'bg-[var(--color-bg-sky)] dark:bg-[var(--color-bg-sky)]',
   },
   {
     icon: React.createElement(RadioIcon, {
@@ -37,7 +37,7 @@ export const notificationsData: Notification[] = [
     }),
     title: 'Andi Lane subscribed to you',
     time: 'Today, 11:59 AM',
-    bgColor: 'bg-[#E5ECF6] dark:bg-[#E5ECF6]',
+    bgColor: 'bg-[var(--color-bg-indigo)] dark:bg-[var(--color-bg-indigo)]',
   },
 ]
 

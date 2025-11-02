@@ -238,7 +238,7 @@ export default function OrderListTable() {
     <div className="p-4 sm:p-5 md:p-7">
       <h2 className="text-sm font-semibold text-black dark:text-white mb-4 sm:mb-6">Order List</h2>
 
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-2 mb-4 sm:mb-6 bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-lg p-2 sm:p-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-2 mb-4 sm:mb-6 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-white-opacity)] rounded-lg p-2 sm:p-3">
         <div className="flex items-center gap-2 flex-wrap">
           <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
             <Plus size={20} className="text-black dark:text-white" />
@@ -257,7 +257,7 @@ export default function OrderListTable() {
             {isFilterOpen && (
               <>
                 <div className="fixed inset-0 z-10" onClick={() => setIsFilterOpen(false)} />
-                <div className="absolute top-10 left-0 z-20 bg-white dark:bg-[#1f1f1f] rounded-lg border border-black/10 dark:border-white/10 shadow-lg min-w-[200px] p-3">
+                <div className="absolute top-10 left-0 z-20 bg-white dark:bg-[var(--color-bg-dark-alt)] rounded-lg border border-black/10 dark:border-white/10 shadow-lg min-w-[200px] p-3">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm font-semibold text-black dark:text-white">
                       Filter by Status
@@ -309,7 +309,7 @@ export default function OrderListTable() {
             placeholder="Search"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="pl-10 pr-4 py-2 w-full sm:w-64 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[#1f1f1f] text-sm text-black dark:text-white placeholder:text-black/40 dark:placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
+            className="pl-10 pr-4 py-2 w-full sm:w-64 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[var(--color-bg-dark-alt)] text-sm text-black dark:text-white placeholder:text-black/40 dark:placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10"
           />
         </div>
       </div>
@@ -391,7 +391,7 @@ export default function OrderListTable() {
                   onMouseLeave={() => setHoveredRow(null)}
                   className={`border-b border-black/5 dark:border-white/5 last:border-0 transition-all duration-200 ${
                     hoveredRow === order.id || selectedOrders.has(order.id)
-                      ? 'bg-[#F7F9FB] dark:bg-white/5 rounded-xl shadow-sm'
+                      ? 'bg-[var(--color-bg-light)] dark:bg-white/5 rounded-xl shadow-sm'
                       : 'hover:bg-black/2 dark:hover:bg-white/2 hover:rounded-xl'
                   }`}
                 >
@@ -480,7 +480,7 @@ export default function OrderListTable() {
                   onClick={() => setCurrentPage(pageNum)}
                   className={`px-3 py-1 text-sm rounded transition-colors ${
                     currentPage === pageNum
-                      ? 'bg-[#1C1C1C0D] dark:bg-white/10 text-black dark:text-white font-semibold'
+                      ? 'bg-[var(--color-text-primary-opacity-05)] dark:bg-white/10 text-black dark:text-white font-semibold'
                       : 'text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/10'
                   }`}
                 >

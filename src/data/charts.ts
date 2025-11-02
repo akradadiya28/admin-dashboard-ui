@@ -34,14 +34,23 @@ export const donutChartData: DonutChartData[] = [
 ]
 
 // Donut Chart Colors
-export const DONUT_CHART_COLORS = ['#1C1C1C', '#60A5FA', '#34D399', '#A78BFA']
+export const DONUT_CHART_COLORS = [
+  'var(--color-text-primary)',
+  'var(--color-chart-blue)',
+  'var(--color-chart-green)',
+  'var(--color-chart-purple)',
+]
 
 // Donut Chart Sales Legend
 export const donutChartSales: DonutChartSales[] = [
-  { label: 'Direct', value: '$300.56', color: 'text-[#1C1C1C] dark:text-[#C6C7F8]' },
-  { label: 'Affiliate', value: '$135.18', color: 'text-[#BAEDBD]' },
-  { label: 'Sponsored', value: '$154.02', color: 'text-[#95A4FC]' },
-  { label: 'E-mail', value: '$48.96', color: 'text-[#B1E3FF]' },
+  {
+    label: 'Direct',
+    value: '$300.56',
+    color: 'text-[var(--color-text-primary)] dark:text-[var(--color-chart-dark-purple)]',
+  },
+  { label: 'Affiliate', value: '$135.18', color: 'text-[var(--color-chart-light-green)]' },
+  { label: 'Sponsored', value: '$154.02', color: 'text-[var(--color-chart-light-blue-purple)]' },
+  { label: 'E-mail', value: '$48.96', color: 'text-[var(--color-chart-light-blue)]' },
 ]
 
 // Bar Chart Projections Data

@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={inter.variable}>
         <ThemeProvider>
-          <div className="flex h-screen bg-white dark:bg-[#1a1a1a] relative">
+          <div className="flex h-screen bg-white dark:bg-[var(--color-bg-dark)] relative">
             {/* Mobile Backdrop for Sidebar */}
             {showSidebar && (
               <div

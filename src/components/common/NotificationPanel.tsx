@@ -9,7 +9,7 @@ export default function NotificationPanel() {
   const contacts = contactsData
 
   return (
-    <aside className="w-full sm:w-[280px] border-l border-black/10 dark:border-white/10 bg-white dark:bg-[#1f1f1f] flex flex-col p-4 sm:p-5 gap-4 sm:gap-6 overflow-y-auto h-screen fixed md:sticky top-0 right-0 scrollbar-auto-hide z-30 md:z-auto">
+    <aside className="w-full sm:w-[280px] border-l border-black/10 dark:border-white/10 bg-white dark:bg-[var(--color-bg-dark-alt)] flex flex-col p-4 sm:p-5 gap-4 sm:gap-6 overflow-y-auto h-screen fixed md:sticky top-0 right-0 scrollbar-auto-hide z-30 md:z-auto">
       {/* Notifications Section */}
       <div>
         <h3 className="text-xs sm:text-sm font-semibold text-black dark:text-white mb-2 sm:mb-3 p-1 sm:p-2">

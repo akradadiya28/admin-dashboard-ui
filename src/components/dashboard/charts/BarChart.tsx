@@ -34,7 +34,7 @@ export default function ProjectionsChart() {
   return (
     <div
       className={`w-full rounded-2xl p-4 sm:p-6 h-full flex flex-col ${
-        isDarkMode ? 'bg-[rgba(255,255,255,0.05)]' : 'bg-[#F7F9FB]'
+        isDarkMode ? 'bg-[var(--color-white-rgba-05)]' : 'bg-[var(--color-bg-light)]'
       }`}
     >
       <p
@@ -56,7 +56,7 @@ export default function ProjectionsChart() {
           >
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke={isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(28,28,28,0.05)'}
+              stroke={isDarkMode ? 'var(--color-white-rgba-10)' : 'var(--color-black-rgba-05)'}
               vertical={false}
               strokeWidth={1}
             />
@@ -65,7 +65,7 @@ export default function ProjectionsChart() {
               axisLine={false}
               tickLine={false}
               tick={{
-                fill: isDarkMode ? 'rgba(255,255,255,0.4)' : 'rgba(28,28,28,0.4)',
+                fill: isDarkMode ? 'var(--color-white-rgba-40)' : 'var(--color-black-rgba-40)',
                 fontSize: 12,
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 400,
@@ -76,7 +76,7 @@ export default function ProjectionsChart() {
               axisLine={false}
               tickLine={false}
               tick={{
-                fill: isDarkMode ? 'rgba(255,255,255,0.4)' : 'rgba(28,28,28,0.4)',
+                fill: isDarkMode ? 'var(--color-white-rgba-40)' : 'var(--color-black-rgba-40)',
                 fontSize: 12,
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 400,
@@ -86,7 +86,12 @@ export default function ProjectionsChart() {
               domain={[0, 30]}
               ticks={[0, 10, 20, 30]}
             />
-            <Bar dataKey="total" fill="#A8C5DA" shape={<TwoColorBar />} barSize={20} />
+            <Bar
+              dataKey="total"
+              fill="var(--color-chart-primary)"
+              shape={<TwoColorBar />}
+              barSize={20}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>

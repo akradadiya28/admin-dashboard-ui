@@ -10,7 +10,7 @@ export default function DonutChart() {
   const sales = donutChartSales
 
   return (
-    <div className="bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-2xl p-4 sm:p-6 h-full flex flex-col">
+    <div className="bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-white-opacity)] rounded-2xl p-4 sm:p-6 h-full flex flex-col">
       <p className="text-xs sm:text-sm font-semibold text-black dark:text-white mb-3 sm:mb-4">
         Total Sales
       </p>

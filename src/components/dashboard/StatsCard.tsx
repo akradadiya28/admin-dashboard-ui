@@ -12,9 +12,9 @@ export default function StatsCard({
   textClassName,
 }: StatsCardProps) {
   const variants = {
-    sky: 'bg-[#E3F5FF]',
-    gray: 'bg-[#F7F9FB] dark:bg-[#FFFFFF0D]',
-    indigo: 'bg-[#E5ECF6]',
+    sky: 'bg-[var(--color-bg-sky)]',
+    gray: 'bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-white-opacity)]',
+    indigo: 'bg-[var(--color-bg-indigo)]',
   }
 
   return (
