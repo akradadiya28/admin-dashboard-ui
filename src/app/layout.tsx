@@ -64,12 +64,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={inter.variable}>
         <ThemeProvider>
-          <div className="flex h-screen bg-white dark:bg-[var(--color-bg-dark)] relative">
+          <div className="flex h-screen bg-white dark:bg-(--color-bg-dark) relative">
             {/* Mobile Backdrop for Sidebar */}
             {showSidebar && (
               <div
                 onClick={handleToggleSidebar}
-                className="fixed inset-0 bg-black/50 z-[35] md:hidden"
+                className="fixed inset-0 bg-black/50 z-35 md:hidden"
               />
             )}
 
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {showNotifications && (
               <div
                 onClick={handleToggleNotifications}
-                className="fixed inset-0 bg-black/50 z-[25] md:hidden"
+                className="fixed inset-0 bg-black/50 z-25 md:hidden"
               />
             )}
 

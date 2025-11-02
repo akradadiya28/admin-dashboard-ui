@@ -6,7 +6,7 @@ export default function ProductTable() {
   const products = productsData
 
   return (
-    <div className="bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-white-opacity)] rounded-2xl p-4 sm:p-6 h-full flex flex-col">
+    <div className="bg-(--color-bg-light) dark:bg-(--color-bg-white-opacity) rounded-2xl p-4 sm:p-6 h-full flex flex-col">
       <p className="text-xs sm:text-sm font-semibold text-black dark:text-white mb-3 sm:mb-4">
         Top Selling Products
       </p>

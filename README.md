@@ -4,7 +4,7 @@ A modern, responsive eCommerce dashboard built with Next.js 16, React 19, and Ta
 
 ## 🚀 Live Demo
 
-**Live Application**: [https://juspay-dashboard-ui.netlify.app/dashboard](#deployment)
+**Live Application**: [View Live Demo](https://juspay-dashboard-ui.netlify.app/dashboard)
 
 ## ✨ Features
 
